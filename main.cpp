@@ -13,7 +13,6 @@ void BFSD(int** G, int n, int* dist, int s)
 	queue<int> q;
 	q.push(s);
     dist[s] = 0;
-	cout << "BFSD result: ";
 	while (!q.empty())
 	{
 		s = q.front();
@@ -192,33 +191,52 @@ int main(int argc, char *argv[])
 	cout << "Enter array size: ";
 	cin >> n;
 	int* dist = (int*)malloc(n * sizeof(int));
-	cout << "Enter vertex: ";
-	cin >> s;
+	
 	for (int i = 0; i < n; i++)
 		dist[i] = INT16_MAX;
-	if(argc > 0){
+	if(argc >= 1){
 		for (int i = 0; i < argc; ++i){
 			if ((strcmp(argv[i], "0") == 0)){ //неориентированный взвешенный
+				cout << "неориентированный взвешенный";
+				cout << endl;
 				t = create(n);
 				cout << endl;
+				cout << "Enter vertex: ";
+				cin >> s;
+				cout << "BFSD result: ";
 				BFSD(t, n, dist, s);
 				cout << endl;
 			}
 			if ((strcmp(argv[i], "1") == 0)){ //ориентированный взвешенный
+				cout << "ориентированный взвешенный";
+				cout << endl;
 				t1 = create_o(n);
 				cout << endl;
+				cout << "Enter vertex: ";
+				cin >> s;
+				cout << "BFSD result: ";
 				BFSD(t1, n, dist, s);
 				cout << endl;
 			}
 			if ((strcmp(argv[i], "2") == 0)){ //ориентированный невзвешенный
+				cout << "ориентированный невзвешенный";
+				cout << endl;
 				t2 = create_on(n);
 				cout << endl;
+				cout << "Enter vertex: ";
+				cin >> s;
+				cout << "BFSD result: ";
 				BFSD(t2, n, dist, s);
 				cout << endl;
 			}
 			if ((strcmp(argv[i], "3") == 0)){ //неориентированный невзвешенный
+				cout << "неориентированный невзвешенный";
+				cout << endl;
 				t3 = create_n(n);
 				cout << endl;
+				cout << "Enter vertex: ";
+				cin >> s;
+				cout << "BFSD result: ";
 				BFSD(t3, n, dist, s);
 				cout << endl;
 			}
